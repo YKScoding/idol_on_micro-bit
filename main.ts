@@ -49,7 +49,7 @@ function Song4 () {
     music.play(music.tonePlayable(494, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
 }
 function chorus () {
-    music.setTempo(140)
+    music.setTempo(150)
     music.play(music.tonePlayable(247, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
     music.play(music.tonePlayable(220, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
     music.play(music.tonePlayable(247, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
@@ -336,6 +336,28 @@ function MainThemeAlt6 () {
     music.play(music.tonePlayable(784, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
     music.play(music.tonePlayable(880, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
 }
+input.onButtonPressed(Button.AB, function () {
+    if (music.volume() == 255) {
+        music.setVolume(130)
+    } else {
+        if (music.volume() == 130) {
+            music.setVolume(30)
+        } else {
+            if (music.volume() == 30) {
+                music.setVolume(0)
+            } else {
+                music.setVolume(255)
+            }
+        }
+    }
+})
+input.onButtonPressed(Button.B, function () {
+    Song4()
+    Song5()
+    MainThemeAlt6()
+    PostTheme7()
+    PostTheme8()
+})
 function PreSong3b () {
     basic.pause(10)
     music.play(music.tonePlayable(330, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
@@ -506,6 +528,7 @@ function Song1 () {
     basic.pause(100)
 }
 music.setTempo(170)
+music.setVolume(255)
 basic.forever(function () {
-	
+    basic.showString("eeeeeeeeeeeeeeeeeeee")
 })
